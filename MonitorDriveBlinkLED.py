@@ -3,10 +3,10 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from gpiozero import LED
 
-usbdeviceled = LED(21) #replace this number if you led is connected to a different pin
+usbdeviceled = LED(21) #replace this number if your led is connected to a different pin.
 
 class Watcher:
-    DIRECTORY_TO_WATCH = "/path/to/my/directory" #replace this with the path to the folder or drive you want to monitor
+    DIRECTORY_TO_WATCH = "/path/to/my/directory" #replace this with the path to the folder or drive you want to monitor.
 
     def __init__(self):
         self.observer = Observer()
@@ -39,7 +39,7 @@ class Handler(FileSystemEventHandler):
             usbdeviceled.off()
 
         elif event.event_type == 'modified':
-            # Taken any action here when a file is modified.
+            # Take any action here when a file is modified.
             usbdeviceled.on()
             sleep(0.5)
             usbdeviceled.off()
